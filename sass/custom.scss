@@ -1,0 +1,12 @@
+
+// Custom.scss
+$theme-colors:(
+    "primary": #88D498,
+    "success": #158563,
+    "secondary": #666666,
+    "info": #ffffff,
+    "danger": #000000,
+);
+
+
+@import "../node_modules/bootstrap/scss/bootstrap";

@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://kit.fontawesome.com/7f8914b9c4.js" crossorigin="anonymous"></script>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="CSS/main.css">
+  <link rel="stylesheet" href="CSS/style.css">
+
+  <title>Study With Me</title>
+</head>
+
+<body>
+  <div class="container-fluid " >
+    <div class="row left-nav min-vh-100 w-20 bg-danger position-relative overflow-hidden">
+
+      <!-- timer section -->
+
+      <div class="col h-25 p-3 timer-bg-box">
+        <div class="d-flex flex-row-reverse">
+          <i class="fas fa-cog fa-lg" id="settings"></i>
+        </div>
+        <div class="row">
+          <div class="col" id="pomodoro">
+            <div class="pomodoro text-center">
+              <span class="text-info">Pomodoro</span>
+            </div>
+            <div class="row time-section ">
+              <p class="col-4 p-0 timer-min text-primary" id="t_min">25</p>
+              <p class="col-4 p-0 text-center t-semicolon text-primary">:</p>
+              <p class="col-4 p-0 timer-sec text-primary" id="t_sec">00</p>
+            </div>
+          </div>
+          <div class="col-1"></div>
+          <div class="col" id="break">
+            <div class="break text-center">
+              <span class="text-info">Break</span>
+            </div>
+            <div class="row break-section">
+              <p class="col-4 p-0 break-min text-primary" id="b_min">05</p>
+              <p class="col-4 p-0 text-center b-semicolon text-primary">:</p>
+              <p class="col-4 p-0 break-sec text-primary" id="b_sec">00</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col timer-button">
+            <button id="startpause" class="btn btn-info float-end">Start</button>
+          </div>
+          <div class="col timer-button">
+            <button id="reset" class="btn btn-info">Reset</button>
+          </div>
+        </div>
+      </div>
+
+     <!-- Music Player section -->
+     <div class="col p-3 music-bg-box position-absolute" id ="music-bg-box">
+      <div class="row">
+        <div class="col-4 music-img-box position-relative" id="music-img">
+          <img src="assets/images/Ukulele.jpg" class="music-img" id="cover" alt="">
+        </div>
+        <div class="col-8">
+          <audio src="assets/music/Ukulele.mp3" id="audio"></audio>
+          <div class="text-center">
+            <span class="title text-primary" id="title">Ukulele</span>
+          </div>
+          
+          <div class="progress-container" id="progress-container">
+            <div class="progress" id="progress"></div>
+          </div>
+          <div class="navigation">
+            <button id="prev" class="action-btn">
+              <i class="fas fa-backward"></i>
+            </button>
+            <button id="play" class="action-btn action-btn-big">
+              <i class="fas fa-play"></i>
+            </button>
+            <button id="next" class="action-btn">
+              <i class="fas fa-forward"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+     </div>
+
+      <!-- To do list section -->
+      <div class="col p-3 task-bg-box scroll position-absolute" id ="task-bg-box">
+        <div class="d-flex flex-column">
+          <span class="text-info">To Do List</span>
+          <form class="d-flex" id="new-task-form">
+            <input class="text-primary" type="text" name="new-task-input" id="new-task-input" placeholder="Add new task" />
+            <button type="submit" id="new-task-submit" >
+              <i class="fa fa-solid fa-plus text-primary"></i>
+            </button>
+          </form>
+          <section class="task-list">
+            <div id="tasks">
+              <!-- <div class="task ">
+                <div class="content">
+                  <input class="text-light" type="text" value="Task 1" >
+                </div>
+                  <button class="delete">
+                    <i class="fa fa-solid fa-trash"></i>
+                  </button>
+              </div> -->
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video Section -->
+    <div class="row video-buttons-box" id="video-buttons-box">
+      <div class="row col-2"></div>
+      <button class="row col-6 bg-danger video-buttons-box-style d-flex text-center align-items-center" id="video-shuffle-btn">
+        <span class="text-info">Shuffle Space</span>
+      </button>
+
+      <button class="col-2 bg-danger video-buttons-box-style d-flex justify-content-center align-items-center" id="video-audio-btn">
+        <i class="fas fa-volume-up fa-2x" id="audio-icon"></i>
+      </button>
+     
+    </div>  
+
+    <video autoplay loop class="w-100 min-vh-100 vid" id="vidBox">
+      <source id="video" src="assets/video/vid2.mp4" type="video/mp4">
+    </video>
+
+    <!-- settings menu -->
+    <div class="row bg-danger w-15 menu">
+      <span class="p-0 text-center text-info">Timer Settings</span>
+
+      <div class="row p_sets">
+        <label class=" col-8 p-settings text-info">Pomodoro</label>
+        <input class="col-4 bg-secondary input-style text-info" id="ptime" type="number" placeholder="00" min="01"
+          max="60">
+      </div>
+      <div class="row b_sets">
+        <label class="col-8 text-info b-settings">Break</label>
+        <input class="col-4 bg-secondary input-style text-info w-40 " id="btime" type="number" placeholder="00" min="01"
+          max="60">
+      </div>
+
+      <div class="row timer-volume">
+        <label class="col-8 text-info" id="timer">Volume</label>
+        <audio class="col-2" id="timer-audio"
+          src="https://assets.mixkit.co/sfx/preview/mixkit-repeating-arcade-beep-1084.mp3"></audio>
+        <i class="fas fa-volume-up fa-2x col-2 p-0" id="volume-icon"></i>
+      </div>
+      <button id="save" class="btn btn-primary save">Save</button>
+    </div>
+
+
+    
+  </div>
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+</body>
+<script src="JS/script.js"></script>
+
+
+</html>
